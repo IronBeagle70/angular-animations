@@ -1,0 +1,7 @@
+.marked{
+    border: 2px solid blue;
+}
+
+.inactive{
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,36 @@
+.project__status{
+    background-color: grey;
+    font-size: 1rem;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 1em;
+}
+
+.project__title{
+    display: flex;
+    align-items: center;
+}
+
+:host{
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 3px 3px 2px #ccc;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+:host(.marked){
+    padding: 19px;    
+}
+
+:host(.inactive){
+    color: #ccc;
+}
+
+.form-control{
+    display: inline-block;
+    width: 50%;
+}
