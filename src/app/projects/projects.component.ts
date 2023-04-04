@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { AnimationEvent } from '@angular/animations'
 
 import { Project } from './project.model';
 
 import { ProjectsService } from './projects.service';
-import { markedTrigger, itemStateTrigger } from './animations';
+import { markedTrigger, itemStateTrigger, slideStateTrigger } from './animations';
+import { routeFadeStateTrigger } from '../shared/route-animations';
 
 @Component({
   selector: 'app-projects',
@@ -12,10 +13,14 @@ import { markedTrigger, itemStateTrigger } from './animations';
   styleUrls: ['./projects.component.css'],
   animations: [
     markedTrigger,
-    itemStateTrigger
+    itemStateTrigger,
+    slideStateTrigger,
+    routeFadeStateTrigger
   ]
 })
 export class ProjectsComponent implements OnInit {
+  @HostBinding('@routeFadeState') routeAnimation = true;
+
   projects!: Project[];
   displayedProjects: Project[] = [];
   markedPrjIndex = 0;
@@ -48,7 +53,9 @@ export class ProjectsComponent implements OnInit {
   onProjectCreated(project: Project) {
     this.createNew = false;
     // this.projects.push(project);
-    this.projects.unshift(project);
+    setTimeout(() => {
+      this.projects.unshift(project);
+    }, 300);
   }
 
   onItemAnimate(animationEvent: AnimationEvent, lastPrjId: number){

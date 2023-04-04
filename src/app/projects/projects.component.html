@@ -21,6 +21,7 @@
     <app-new-project
       *ngIf="createNew"
       (projectCreated)="onProjectCreated($event)"
+      @slideState
       (creationCancelled)="createNew = false"></app-new-project>
   </div>
 </div>
@@ -38,7 +39,7 @@
       *ngFor="let prj of displayedProjects; let i = index"
       [project]="prj"
       [@markedState]="markedPrjIndex === i ? 'marked' : 'default' "
-      @itemState
+      [@itemState]="createNew ? 'slidDown' : 'slidUp' "
       (@itemState.done)="onItemAnimate($event, i)"
       [ngClass]="{inactive: prj.status === 'inactive'}"
       (statusUpdated)="onStatusUpdated($event, i)"
