@@ -20,3 +20,18 @@
 <!-- ease-out (start fast, end slow): A -------- 2s -- 3s B -->
 <!-- ease-in (start slow, end fast): A -- 1s -------- 3s B -->
 <!-- linear (constant speed): A ---------- 3s B -->
+
+
+<!-- void: estado para elementos que son agregados y eliminados de DOM -->
+
+<!-- void => * o * => void, * significa cualquier estado, solo usar cuando no importado tener un estado -->
+<!-- :enter o :leave -->
+
+<!-- Multi-steps transitions, animation groups, keyframes -->
+<!-- multi-steps: se ejecutan de uno en uno -->
+<!-- groups group([]) : se ejcutan de uno en uno pero las animaciones dentro de los grupos se ejecutan en paralelo o simultaneo -->
+<!-- keyframes animate(300, keyframes([])) : para controlar las animaciones, como keyframes en css -->
+
+<!-- Eventos en animaciones -->
+<!-- (@triggerName.start)="nombreDeEvento($event: AnimationEvent)" -->
+<!-- (@triggerName.done)="nombreDeEvento($event: AnimationEvent)" -->
