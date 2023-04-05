@@ -4,7 +4,7 @@ import { AnimationEvent } from '@angular/animations'
 import { Project } from './project.model';
 
 import { ProjectsService } from './projects.service';
-import { markedTrigger, itemStateTrigger, slideStateTrigger } from './animations';
+import { markedTrigger, itemStateTrigger, slideStateTrigger, listStateTrigger } from './animations';
 import { routeFadeStateTrigger, routeSlideStateTrigger } from '../shared/route-animations';
 
 @Component({
@@ -15,21 +15,23 @@ import { routeFadeStateTrigger, routeSlideStateTrigger } from '../shared/route-a
     markedTrigger,
     itemStateTrigger,
     slideStateTrigger,
-    routeFadeStateTrigger,
-    routeSlideStateTrigger
+    // routeFadeStateTrigger,
+    routeSlideStateTrigger,
+    listStateTrigger
   ]
 })
 export class ProjectsComponent implements OnInit {
   // @HostBinding('@routeFadeState') routeAnimation = true;
   @HostBinding('@routeSlideState') routeAnimation = true;
 
-  projects!: Project[];
-  displayedProjects: Project[] = [];
+  projects: Project[];
   markedPrjIndex = 0;
   progress = 'progressing';
   createNew = false;
 
-  constructor(private prjService: ProjectsService) { }
+  constructor(private prjService: ProjectsService) {
+    this.projects= []
+  }
 
   ngOnInit() {
     this.prjService.loadProjects()
@@ -37,9 +39,6 @@ export class ProjectsComponent implements OnInit {
         (prj: Project[]) => {
           this.progress = 'finished';
           this.projects = prj;
-          if(this.projects.length >= 1){
-            this.displayedProjects.push(this.projects[0]);
-          }
         }
       );
   }
@@ -60,14 +59,14 @@ export class ProjectsComponent implements OnInit {
     }, 300);
   }
 
-  onItemAnimate(animationEvent: AnimationEvent, lastPrjId: number){
-    if(animationEvent.fromState != 'void'){
-      return;
-    };
-    if(this.projects.length > lastPrjId + 1){
-      this.displayedProjects.push(this.projects[lastPrjId + 1]);
-    } else {
-      this.projects = this.displayedProjects;
-    }
-  }
+  // onItemAnimate(animationEvent: AnimationEvent, lastPrjId: number){
+  //   if(animationEvent.fromState != 'void'){
+  //     return;
+  //   };
+  //   if(this.projects.length > lastPrjId + 1){
+  //     this.displayedProjects.push(this.projects[lastPrjId + 1]);
+  //   } else {
+  //     this.projects = this.displayedProjects;
+  //   }
+  // }
 }
