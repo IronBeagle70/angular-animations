@@ -7,7 +7,7 @@
       </ul>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="overflow: hidden;">
     <div class="col-xs-12">
       <router-outlet></router-outlet>
     </div>
@@ -35,3 +35,17 @@
 <!-- Eventos en animaciones -->
 <!-- (@triggerName.start)="nombreDeEvento($event: AnimationEvent)" -->
 <!-- (@triggerName.done)="nombreDeEvento($event: AnimationEvent)" -->
+
+
+<!-- Angular Animations 4.2 -->
+<!-- query() method -->
+<!-- query(elemento por .clase #id tag, [animation metadata]) -->
+<!-- query(:enter) / query(:leave) consultar elementos agregados / eliminados  -->
+<!-- query(:animatig) Consulta todos los elementos que actualmente están reproduciendo una animación. -->
+<!-- @triggerName Consulta todos los elementos que usan ese activador de animación -->
+<!-- @* Query all elements which have ANY animation trigger -->
+<!-- :self Consultar el elemento principal (es decir, aquel en el que se aplicó el activador que activó la transición) -->
+
+<!-- congifuraciones , {optional : true} {limit: 1} al final del metadata  -->
+
+<!-- combinar query('div p , button', [metadata]) -->

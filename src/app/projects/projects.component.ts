@@ -5,7 +5,7 @@ import { Project } from './project.model';
 
 import { ProjectsService } from './projects.service';
 import { markedTrigger, itemStateTrigger, slideStateTrigger } from './animations';
-import { routeFadeStateTrigger } from '../shared/route-animations';
+import { routeFadeStateTrigger, routeSlideStateTrigger } from '../shared/route-animations';
 
 @Component({
   selector: 'app-projects',
@@ -15,11 +15,13 @@ import { routeFadeStateTrigger } from '../shared/route-animations';
     markedTrigger,
     itemStateTrigger,
     slideStateTrigger,
-    routeFadeStateTrigger
+    routeFadeStateTrigger,
+    routeSlideStateTrigger
   ]
 })
 export class ProjectsComponent implements OnInit {
-  @HostBinding('@routeFadeState') routeAnimation = true;
+  // @HostBinding('@routeFadeState') routeAnimation = true;
+  @HostBinding('@routeSlideState') routeAnimation = true;
 
   projects!: Project[];
   displayedProjects: Project[] = [];
